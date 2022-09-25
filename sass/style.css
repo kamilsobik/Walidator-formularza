@@ -1,1 +1,110 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(130deg, #34d6fa 30%, #045de9 80%);
+}
+
+.wrapper {
+  width: 440px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 10px #000;
+          box-shadow: 0 0 10px #000;
+}
+
+form {
+  padding: 40px;
+  border: 1px solid #c5c5c5;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-box.error input {
+  border: 1px solid #fa0000;
+  background-color: rgba(250, 0, 0, 0.2);
+}
+
+.form-box .error-text {
+  margin: 5px, 0 0 10px;
+  font-style: 14px;
+  color: #fa0000;
+  visibility: hidden;
+}
+
+form-box.error .error-text {
+  visibility: visible;
+}
+
+.control-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.send,
+.clear,
+.close {
+  margin-left: 10px;
+  width: 150px;
+}
+
+.popup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: -300px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 550px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 2px solid black;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+.popup p {
+  font-size: 20px;
+}
+
+.popup .close {
+  margin-top: 20px;
+}
+
+.show-popup {
+  top: 50%;
+}
+/*# sourceMappingURL=style.css.map */
