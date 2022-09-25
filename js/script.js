@@ -27,9 +27,30 @@ const checkForm = (input) => {
   });
 };
 
+const checkLenght = (input, minimumLength) => {
+  if (input.value.length < minimumLength) {
+    showError(
+      input,
+      `${input.previousElementSibling.innerText.slice(
+        0,
+        -1
+      )} składa się z mininum ${minimumLength} znakow`
+    );
+  }
+};
+
+const checkPassword = (password, password2) => {
+  if (password.value !== password2.value) {
+    showError(password2, "Hasła do siebie nie pasują");
+  }
+};
+
 sendBtn.addEventListener("click", (event) => {
   event.preventDefault();
   checkForm([username, password, password2, email]);
+  checkLenght(username, 4);
+  checkLenght(password, 8);
+  checkPassword(password, password2);
 });
 ``;
 
