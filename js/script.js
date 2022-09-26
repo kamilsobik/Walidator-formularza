@@ -70,6 +70,19 @@ const checkMail = (email) => {
   }
 };
 
+const checkError = () => {
+  const allDivInputs = document.querySelectorAll(".form-box");
+  let errorCount = 0;
+  allDivInputs.forEach((element) => {
+    if (element.classList.contains("error")) {
+      errorCount++;
+    }
+  });
+  if (errorCount === 0) {
+    popup.classList.add("show-popup");
+  }
+};
+
 sendBtn.addEventListener("click", (event) => {
   event.preventDefault();
   checkForm([username, password, password2, email]);
@@ -78,12 +91,13 @@ sendBtn.addEventListener("click", (event) => {
   checkPassword(password, password2);
   checkMail(email);
   checkPasswordContatinCharacters(password);
+  checkError();
 });
-``;
 
 clearBtn.addEventListener("click", (event) => {
   event.preventDefault();
   [username, password, password2, email].forEach((element) => {
     element.value = "";
+    clearError(element);
   });
 });
