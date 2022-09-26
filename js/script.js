@@ -28,6 +28,20 @@ const checkForm = (input) => {
   });
 };
 
+const checkPasswordContatinCharacters = (password) => {
+  var letters =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  if (password.value.match(letters)) {
+    true;
+  } else {
+    showError(
+      password,
+      "Hasło powinno zawierać minimum 8 znaków w tym cyfrę, małą literę, dużą literę oraz znak specjalny"
+    );
+  }
+};
+
 const checkLenght = (input, minimumLength) => {
   if (input.value.length < minimumLength) {
     showError(
@@ -63,6 +77,7 @@ sendBtn.addEventListener("click", (event) => {
   checkLenght(password, 8);
   checkPassword(password, password2);
   checkMail(email);
+  checkPasswordContatinCharacters(password);
 });
 ``;
 
