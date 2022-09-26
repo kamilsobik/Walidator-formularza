@@ -12,6 +12,7 @@ const showError = (input, message) => {
   formBox.classList.add("error");
   errorMessage.textContent = message;
 };
+
 const clearError = (input) => {
   const formBox = input.parentElement;
   formBox.classList.remove("error");
@@ -34,7 +35,7 @@ const checkLenght = (input, minimumLength) => {
       `${input.previousElementSibling.innerText.slice(
         0,
         -1
-      )} składa się z mininum ${minimumLength} znakow`
+      )} musi składać się z minimum ${minimumLength} znaków`
     );
   }
 };
@@ -45,12 +46,23 @@ const checkPassword = (password, password2) => {
   }
 };
 
+const checkMail = (email) => {
+  const checkMailConditions =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (checkMailConditions.test(email.value)) {
+    clearError(email);
+  } else {
+    showError(email, "email jest niepoprawny");
+  }
+};
+
 sendBtn.addEventListener("click", (event) => {
   event.preventDefault();
   checkForm([username, password, password2, email]);
   checkLenght(username, 4);
   checkLenght(password, 8);
   checkPassword(password, password2);
+  checkMail(email);
 });
 ``;
 
